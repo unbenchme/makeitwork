@@ -1,11 +1,34 @@
+CREATE TABLE Organization								-- Table to store info related to organization
+(
+Org_ID int IDENTITY(1,1) NOT NULL,
+OrgName varchar(255) NOT NULL							-- Name of org
+PRIMARY KEY (Org_ID)
+);
+
 CREATE TABLE Person										-- Table to store user information
 (
 Person_ID int IDENTITY(1,1) NOT NULL,					-- Primary key autonumber
-FirstName varchar(255),									-- First name of user
-LastName varchar(255),									-- Last name of user
+FirstName varchar(255) NOT NULL,						-- First name of user
+LastName varchar(255) NOT NULL,							-- Last name of user
 UserName varchar(255) NOT NULL,
 EmailAddress varchar(255) NOT NULL,
 PRIMARY KEY (Person_ID)									-- Set primary key
+);
+
+CREATE TABLE OrganizationOwner							-- Table to store organization owners (admins)
+(
+Org_ID int NOT NULL,
+Person_ID int NOT NULL,
+FOREIGN KEY (Org_ID) REFERENCES Organization(Org_ID),
+FOREIGN KEY (Person_ID) REFERENCES Person(Person_ID)
+);
+
+CREATE TABLE PersonOrganization							-- Table to store people who exist in organization
+(
+Person_ID int NOT NULL,
+Org_ID int NOT NULL,
+FOREIGN KEY (Person_ID) REFERENCES Person(Person_ID),
+FOREIGN KEY (Org_ID) REFERENCES Organization(Org_ID)
 );
 
 CREATE TABLE LookingForWork 							-- Table to identify if user is available for work
@@ -72,7 +95,7 @@ FOREIGN KEY (Expertise_ID) REFERENCES Expertise(Expertise_ID)
 CREATE TABLE Request								-- Requests
 (
 Request_ID int IDENTITY(1,1) NOT NULL,				-- Primary key
-RequestName varchar(255) NOT NULL,					-- Name of request
+RequestName varchar(255),							-- Name of request
 RequestDesc text,									-- Descripton of request
 RequestTime float(6, 2),							-- Time request will take
 RequestMaxPeople tinyint,							-- Amount of people for request
