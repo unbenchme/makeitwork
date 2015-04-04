@@ -34,7 +34,7 @@ FOREIGN KEY (Org_ID) REFERENCES Organization(Org_ID)
 CREATE TABLE LookingForWork 							-- Table to identify if user is available for work
 (
 Person_ID int NOT NULL,									-- Foreign Key from People table
-IsAvailable bool NOT NULL DEFAULT 0,					-- Yes/No is user available for work, defaults to no
+IsAvailable bit NOT NULL DEFAULT 0,					-- Yes/No is user available for work, defaults to no
 FOREIGN KEY (Person_ID) REFERENCES Person(Person_ID)	-- Foreign key to People table
 );
 
@@ -99,8 +99,8 @@ RequestName varchar(255),							-- Name of request
 RequestDesc text,									-- Descripton of request
 RequestTime float(6, 2),							-- Time request will take
 RequestMaxPeople tinyint,							-- Amount of people for request
-IsRequestFilled bool DEFAULT 0,						-- Is request filled
-IsRequestComplete bool DEFAULT 0,					-- Is request complete
+IsRequestFilled bit DEFAULT 0,						-- Is request filled
+IsRequestComplete bit DEFAULT 0,					-- Is request complete
 PRIMARY KEY (Request_ID)
 );
 
