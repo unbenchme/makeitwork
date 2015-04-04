@@ -97,7 +97,7 @@ CREATE TABLE Request								-- Requests
 Request_ID int IDENTITY(1,1) NOT NULL,				-- Primary key
 RequestName varchar(255),							-- Name of request
 RequestDesc text,									-- Descripton of request
-RequestTime float(6, 2),							-- Time request will take
+RequestTime float(2),							-- Time request will take
 RequestMaxPeople tinyint,							-- Amount of people for request
 IsRequestFilled bit DEFAULT 0,						-- Is request filled
 IsRequestComplete bit DEFAULT 0,					-- Is request complete

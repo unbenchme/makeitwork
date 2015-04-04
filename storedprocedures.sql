@@ -1,10 +1,10 @@
-USE UnBenchMe
+USE UnBenchMe_db
 GO
 
 CREATE PROCEDURE addRequest(
 @rname varchar(255),
 @rdesc text,
-@rtime float(6,2),
+@rtime float(2),
 @rmaxpeople tinyint,
 @p_id int)
 AS
