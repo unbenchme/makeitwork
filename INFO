@@ -1,0 +1,10 @@
+Created using Django framework
+pinax 
+pinax-theme-bootstrap
+django-user-accounts
+pinax-notifications
+
+Working file is /requests/models.py
+  - Classes for database
+Need help w/ deploying pinax-notifications
+  - See if this can be mechanism for notifying user when request is available/someone accepts their request
