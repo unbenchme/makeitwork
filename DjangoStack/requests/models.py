@@ -16,14 +16,12 @@ class Request(models.Model):
     category_name = models.ForeignKey(Category)                                 #Category of request from Category Class
     number_of_people = models.DecimalField(max_digits=2,decimal_places=0)       #Number of people requested
     username = models.ForeignKey(settings.AUTH_USER_MODEL)                      #Username from contrib.auth
-    def __unicode__(self):
-        return self.id
 
-
+    
 #Available identifies whether a user is a   vailable or not
 class Available(models.Model):
     username = models.ForeignKey(settings.AUTH_USER_MODEL)                      #Username from contrib.auth
-    is_available = models.BooleanField(False)
+    is_available = models.BooleanField(None)
     def __unicode__(self):
         return self.username, self.is_available
 

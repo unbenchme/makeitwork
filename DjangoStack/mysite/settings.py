@@ -136,6 +136,9 @@ INSTALLED_APPS = [
 
     # project
     "mysite",
+
+    #Requests
+    "requests",
 ]
 
 # A sample logging configuration. The only tangible logging
