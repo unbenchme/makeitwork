@@ -11,6 +11,8 @@ urlpatterns = patterns(
     url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
+    #used for notifications
+    url(r"^notifications/", include("pinax.notifications.urls"))
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -137,6 +137,9 @@ INSTALLED_APPS = [
     # project
     "mysite",
 
+    #notifications
+    "pinax.notifications",
+
     #Requests
     "requests",
 ]
