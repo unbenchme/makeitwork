@@ -1,0 +1,10 @@
+{% if active_request_list %}
+  <ul>
+  {% for request in active_request_list %}
+    <li><a href="/requests/{{request.id}}/">{{request.id}}</a>
+</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No requests are available.</p>
+{% endif %}
