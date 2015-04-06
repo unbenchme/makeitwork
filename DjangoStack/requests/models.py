@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 
 # Create your models here.
 
@@ -7,14 +8,15 @@ from django.conf import settings
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
     username = models.ForeignKey(settings.AUTH_USER_MODEL)                      #Tracks who created what category
-    category_timestamp = models.DateTimeField()                                 #Timestamp of when category created
+    category_timestamp = models.DateTimeField(default=timezone.now(),editable=False)                  #Timestamp of when category created
     def __unicode__(self):
         return self.category_name
 
 #Requests is a request for help by a user
 class Request(models.Model):
+    request_name = models.CharField(max_length=100)
     time_in_hours = models.DecimalField(max_digits=4,decimal_places=2)          #Time request will take in hours
-    request_timestamp = models.DateTimeField()                                  #Timestamp of request
+    request_timestamp = models.DateTimeField(default=timezone.now(), editable=False)                                  #Timestamp of request
     category_name = models.ForeignKey(Category)                                 #Category of request from Category Class
     number_of_people = models.DecimalField(max_digits=2,decimal_places=0)       #Number of people requested
     username = models.ForeignKey(settings.AUTH_USER_MODEL)                      #Username from contrib.auth
