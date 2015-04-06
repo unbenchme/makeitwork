@@ -10,8 +10,6 @@ from .models import Available
 
 def activeRequests(request):
     #all active requests in list format, boring i know
-    active_request_list = Request.objects
-    output = ', '.join([p.username for p in active_request_list])               # Anthony, reference by PK not username
-    return HttpResponse(output)
-
-def 
+    active_request_list = Request.objects.all()
+    context = { 'active_request_list': active_request_list}
+    return render(request, 'requests/index.html', context)
