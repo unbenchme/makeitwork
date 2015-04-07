@@ -2,7 +2,7 @@ from django import modelform_factory
 from django import modelForm
 from DjangoStack.models import Category, Request, Available
 
-#Create the form class
+# #Create the form class
 class CatergoryForm(ModelForm):
     class Meta:
         model = Category
